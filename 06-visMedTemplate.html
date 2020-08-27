@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+
+    <template>
+        <h2></h2>
+        <p class="art"></p>
+        <p class="sted"></p>
+    </template>
+
+    <script>
+        let dyr = [{
+                "navn": "Gris",
+                "type": "Pattedyr",
+                "levested": "Svinesti",
+            },
+            {
+                "navn": "Ko",
+                "type": "Pattedyr",
+                "levested": "Stald",
+            },
+            {
+                "navn": "Hugorm",
+                "type": "Pattedyr",
+                "levested": "Skoven",
+            }
+        ]
+
+        let container = document.querySelector("section");
+        let temp = document.querySelector("template");
+
+        //løb igennen array "dyr"
+        dyr.forEach(etDyr => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h2").textContent = etDyr.navn;
+                klon.querySelector(".art").textContent = etDyr.type;
+                klon.querySelector(".sted").textContent = etDyr.levested;
+                container.appendChild(klon);
+            }
+
+
+        )
+
+    </script>
+
+</body>
+
+</html>
