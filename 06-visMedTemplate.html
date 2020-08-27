@@ -8,46 +8,69 @@
     <link rel="stylesheet" href="">
 </head>
 
+
+
 <body>
+    <section>
+
+    </section>
 
     <template>
-        <h2></h2>
-        <p class="art"></p>
-        <p class="sted"></p>
+        <article>
+            <h2></h2>
+            <img src="" alt="">
+            <p class="art"></p>
+            <p class="sted"></p>
+        </article>
     </template>
 
     <script>
         let dyr = [{
-                "navn": "Gris",
-                "type": "Pattedyr",
-                "levested": "Svinesti",
-            },
-            {
-                "navn": "Ko",
-                "type": "Pattedyr",
-                "levested": "Stald",
-            },
-            {
-                "navn": "Hugorm",
-                "type": "Pattedyr",
-                "levested": "Skoven",
-            }
-        ]
+            "navn": "Gris",
+            "type": "Pattedyr",
+            "levested": "svinesti",
+            "billede": "http://mabe-kea.dk/E19/pics/pig.png"
+        }, {
+            "navn": "Kagemand",
+            "type": "kage",
+            "levested": "bageri",
+            "billede": "http://mabe-kea.dk/E19/pics/kagemand.png"
+        }, {
+            "navn": "frø",
+            "type": "krybdyr",
+            "levested": "vandhul",
+            "billede": "http://mabe-kea.dk/E19/pics/frog.png"
+        }, {
+            "navn": "ræv",
+            "type": "Pattedyr",
+            "levested": "byen",
+            "billede": "http://mabe-kea.dk/E19/pics/fox.png"
+        }, {
+            "navn": "sild",
+            "type": "fisk",
+            "levested": "havet",
+            "billede": "http://mabe-kea.dk/E19/pics/sild.jpg"
+        }, {
+            "navn": "Krokodille",
+            "type": "krybdyr",
+            "levested": "floder",
+            "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg"
+        }]
 
         let container = document.querySelector("section");
         let temp = document.querySelector("template");
-
-        //løb igennen array "dyr"
+        //løb igennem array "dyr"
         dyr.forEach(etDyr => {
-                let klon = temp.cloneNode(true).content;
-                klon.querySelector("h2").textContent = etDyr.navn;
-                klon.querySelector(".art").textContent = etDyr.type;
-                klon.querySelector(".sted").textContent = etDyr.levested;
-                container.appendChild(klon);
-            }
+
+            let klon = temp.cloneNode(true).content;
+            klon.querySelector("h2").textContent = etDyr.navn;
+            klon.querySelector(".art").textContent = etDyr.type;
+            klon.querySelector(".sted").textContent = etDyr.levested;
+            klon.querySelector("img").src = etDyr.billede;
+            container.appendChild(klon);
 
 
-        )
+        })
 
     </script>
 
