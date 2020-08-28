@@ -1,4 +1,4 @@
-let dyr = [{
+[{
     "navn": "Gris",
     "type": "Pattedyr",
     "levested": "svinesti",

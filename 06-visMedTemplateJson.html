@@ -27,21 +27,27 @@
     <script>
         let container = document.querySelector("section");
         let temp = document.querySelector("template");
-        //løb igennem array "dyr"
-        dyr.forEach(etDyr => {
 
-            let klon = temp.cloneNode(true).content;
-            klon.querySelector("h2").textContent = etDyr.navn;
-            klon.querySelector(".art").textContent = etDyr.type;
-            klon.querySelector(".sted").textContent = etDyr.levested;
-            klon.querySelector("img").src = etDyr.billede;
-            container.appendChild(klon);
+        async function hentdata() {
+            const respons = await fetch("dyr.json");
+            const json = await respons.json();
+            vis(json);
 
+        }
 
-        })
+        function vis(json) {
+            //løb igenne array 'dyr'.
+            json.forEach(etDyr => {
+                let klon = temp.cloneNode(true).content;
+                klon.querySelector("h2").textContent = etDyr.navn;
+                klon.querySelector(".art").textContent = etDyr.type;
+                klon.querySelector(".sted").textContent = etDyr.levested;
+                klon.querySelector("img").src = etDyr.billede;
+                container.appendChild(klon);
+            })
+        }
 
+        hentdata()
     </script>
 
-</body>
-
-</html>
+</body></html>
